@@ -11,8 +11,17 @@ button {
   background-color: darkblue;
   color: white;
   margin: auto;
+  margin-bottom: 1rem;
   display: flex;
   width: 80%;
   height: auto;
   padding: 0.5rem;
+}
+
+.question {
+  display: none;
+}
+
+.quizButton {
+  display: none;
 }
