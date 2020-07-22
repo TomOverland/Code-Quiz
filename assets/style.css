@@ -1,3 +1,18 @@
 body {
-    background-color: bisque;
+  background-color: bisque;
+}
+
+h1 {
+  color: navy;
+}
+
+button {
+  background-color: darkblue;
+  color: white;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  width: 80%;
+  height: auto;
+  padding: 0.5rem;
 }
