@@ -3,13 +3,13 @@ body {
 }
 
 h1 {
+  text-align: center;
   color: navy;
 }
 
 button {
   background-color: darkblue;
   color: white;
-  text-align: center;
   margin: auto;
   display: flex;
   width: 80%;
