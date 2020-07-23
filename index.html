@@ -3,56 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
- <!--Bootstrap-->
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!--Stylesheets-->
-    <link rel="stylesheet" href="assets\style.css" />
     <title>Document</title>
+    <link rel="stylesheet" href="assets/style.css" />
   </head>
   <body>
-    <header class="container">
-      <div class="row">
-        <div class="col">
-          <!--Header question-->
-          <h1 class="question">This is where the question goes!</h1>
-          <div id="timer">70</div>
-        </div>
-      </div>
-    </header>
-   <!--TOP OF PAGE-->
-    <main class="container">
-      <div class="row">
-          <div id="start" class="col">Start Quiz</div>
-        </div>
-    <!--BUTTONS-->
-    <section id="quiz-buttons" class="container">
-        <div class=row">
-            <div class="col">
-                <button id="button1" class="choice">Button One</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button id="button2" class="choice">Button Two</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button id="button3" class="choice">Button Three</button>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <button id="button4" class="choice">Button Four</button>
-            </div>
-        </div>
-    </section>
+    <main id="start" class="show">
+      <button>Start Quiz</button>
     </main>
-<!--Bootstrap Scripts-->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <!--My javascript files-->
-    <script src="assets/script.js"></script>
+    <section id="question" class="hide">
+      <h1>This is where the questions go</h1>
+    </section>
+    <section id="quizButtons" class="hide">
+      <button id="button1">Button1</button>
+      <button id="button2">Button2</button>
+      <button id="button3">Button3</button>
+      <button id="button4">Button4</button>
+    </section>
+    <section>
+      <p>Time Remaining: <span id="count">70</span></p>
+    </section>
+    <script src="assets\script.js"></script>
   </body>
 </html>
