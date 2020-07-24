@@ -15,17 +15,22 @@
     </div>
     <!--QUESTION-->
     <div id="questionContainer" class="hide">
-      <h3 id=question>Commonly used data types DO NOT include:</h1>
+      <h3 id=question> Question </h3>
     </div>
     <!--QUESTION BUTTONS-->
     <div id="choices" class="hide">
-      <button id="button1" class="incorrect">Strings</button>
-      <button id="button2" class="incorrect">Booleans</button>
-      <button id="button3" class="correct">Alerts</button>
-      <button id="button4" class="incorrect">Numbers</button>
+      <button id="1" class="choice" onclick="checkAnswer('1')"> Button 1 </button>
+      <button id="2" class="choice" onclick="checkAnswer('2')"> Button 2 </button>
+      <button id="3" class="choice" onclick="checkAnswer('3')"> Button 3 </button>
+      <button id="4" class="choice" onclick="checkAnswer('4')"> Button 4 </button>
     </div>
+    <div id=ending class="hide">
+      <h3> All Done! </h3>
+      <p> Score <span id="score">50</span> </p>
+    </div>
+    
     <!--TIME REMAINING-->
-    <div>
+    <div id="timer" class="hide">
       <p>Time Remaining: <span id="count">70</span></p>
     </div>
     <script src="assets\script.js"></script>

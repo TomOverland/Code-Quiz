@@ -1,65 +1,119 @@
-let button1 = document.getElementById("button1");
-let button2 = document.getElementById("button2");
-let button3 = document.getElementById("button3");
-let button4 = document.getElementById("button4");
+let choice1 = document.getElementById("1");
+let choice2 = document.getElementById("2");
+let choice3 = document.getElementById("3");
+let choice4 = document.getElementById("4");
 let counter = document.getElementById("count");
 let start = document.getElementById("start");
 let choices = document.getElementById("choices");
 let instructions = document.getElementById("instructions");
 let questionContainer = document.getElementById("questionContainer");
+let ending = document.getElementById("ending");
+let score = document.getElementById("score");
+let timer = document.getElementById("timer");
 let timeLeft = 70;
 
-// I created an array to store the questions and button choices
+// I created a question object to store the questions and button choices as an array
 let questions = [
   {
     question: "Commonly used data types DO NOT include:",
-    button1: "Strings",
-    button2: "Booleans",
-    button3: "Alerts",
-    button4: "Numbers",
+    choice1: "Strings",
+    choice2: "Booleans",
+    choice3: "Alerts",
+    choice4: "Numbers",
     correct: "3",
   },
   {
     question:
       "The condition in an if/else statement is enclosed within _________.",
-    button1: "Quotes",
-    button2: "Curly Brackets",
-    button3: "Parenthesis",
-    button4: "Square Brackets",
+    choice1: "Quotes",
+    choice2: "Curly Brackets",
+    choice3: "Parenthesis",
+    choice4: "Square Brackets",
     correct: "3",
   },
   {
     question: "Arrays in JavaScript can be used to store ____________.",
-    button1: "Numbers and Strings",
-    button2: "Other Arrays",
-    button3: "Booleans",
-    button4: "All of the Above",
+    choice1: "Numbers and Strings",
+    choice2: "Other Arrays",
+    choice3: "Booleans",
+    choice4: "All of the Above",
     correct: "4",
   },
   {
     question:
       "String values must be enclosed within ___________ when being assigned to variables.",
-    button1: "Commas",
-    button2: "Curly Brackets",
-    button3: "Quotes",
-    button4: "Parenthesis",
+    choice1: "Commas",
+    choice2: "Curly Brackets",
+    choice3: "Quotes",
+    choice4: "Parenthesis",
     correct: "3",
   },
   {
     question:
       "A very useful tool used during development and debugging for printing content to the debugger is:",
-    button1: "JavaScript",
-    button2: "Terminal / Bash",
-    button3: "For Loops",
-    button4: "console.log",
+    choice1: "JavaScript",
+    choice2: "Terminal / Bash",
+    choice3: "For Loops",
+    choice4: "console.log",
     correct: "4",
   },
 ];
 
-// This function will hide my start button on click, and reveal the buttons.
+// this variable defines the last question
+let lastQuestionIndex = questions.length - 1;
+
+// this variable defines the question that the question the user is currently answering
+let runningQuestionIndex = 0;
+
+// This function will take the key values from my question object and change the question and answer buttons.
+function renderQuestion() {
+  let q = questions[runningQuestionIndex];
+  question.innerHTML = "<p>" + q.question + "<p>";
+  choice1.innerHTML = q.choice1;
+  choice2.innerHTML = q.choice2;
+  choice3.innerHTML = q.choice3;
+  choice4.innerHTML = q.choice4;
+}
+
+// This function defines what to do if the user answered the question correctly
+function answerIsCorrect() {
+  console.log("correct");
+  // To be done: Figure out a way to write "Correct" into the HTML
+}
+
+// This function defines what to do if the user answered incorrectly, and deducts 10 seconds from their score.
+function answerIsWrong() {
+  console.log("wrong");
+  timeLeft -= 10;
+}
+
+// This function will check whether the button clicked defined as correct, or wrong.
+function checkAnswer(answer) {
+  if (questions[runningQuestionIndex].correct == answer) {
+    answerIsCorrect();
+  } else {
+    answerIsWrong();
+  }
+  // This if statement will render a new question after the previous one was answered, and will clearInterval(timeLeft) after the last question has been answered.
+  if (runningQuestionIndex < lastQuestionIndex) {
+    runningQuestionIndex++;
+    renderQuestion();
+  } else {
+    clearInterval(timeLeft);
+    questionContainer.classList.add("hide");
+    questionContainer.classList.remove("show");
+    choices.classList.add("hide");
+    choices.classList.remove("show");
+    ending.classList.add("show");
+    ending.classList.remove("hide");
+    score.innerHTML = timeLeft;
+  }
+}
+
+// This function will hide my start button on click, and reveal the questions and answer buttons.
 function hideStart() {
-  //console.log("Start");  This console.log will add "start" to the console to give me a quick idea if the button is working
-  //console.log(start.style);   This console.log tells me what the "style" of the start element is targeting
+  //console.log("Start"); // This console.log will add "start" to the console to give me a quick idea if the button is working, used for debugging
+  //console.log(start.style);  // This console.log tells me what the "style" of the start element is targeting, used for debugging
   if (start.classList.contains("show")) {
     start.classList.add("hide");
     start.classList.remove("show");
@@ -76,11 +130,13 @@ function hideStart() {
     questionContainer.classList.add("show");
     questionContainer.classList.remove("hide");
   }
+  timer.classList.add("show");
+  timer.classList.remove("hide");
 }
 
 // This function is what counts the clock down by 1 second
 function countDown() {
-  //console.log("countdown"); //this console.log tests if the addEventListener is working.
+  //console.log("countdown"); //this console.log tests if the addEventListener is working. Used for debugging.
   setInterval(function () {
     // This if statement prevents the timer from counting below zero.
     if (timeLeft <= 0) {
@@ -95,3 +151,4 @@ function countDown() {
 //This on click event will trigger the hideStart function
 start.addEventListener("click", hideStart);
 start.addEventListener("click", countDown);
+start.addEventListener("click", renderQuestion);
