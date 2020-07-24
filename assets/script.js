@@ -9,7 +9,52 @@ let instructions = document.getElementById("instructions");
 let questionContainer = document.getElementById("questionContainer");
 let timeLeft = 70;
 
-let questions;
+// I created an array to store the questions and button choices
+let questions = [
+  {
+    question: "Commonly used data types DO NOT include:",
+    button1: "Strings",
+    button2: "Booleans",
+    button3: "Alerts",
+    button4: "Numbers",
+    correct: "3",
+  },
+  {
+    question:
+      "The condition in an if/else statement is enclosed within _________.",
+    button1: "Quotes",
+    button2: "Curly Brackets",
+    button3: "Parenthesis",
+    button4: "Square Brackets",
+    correct: "3",
+  },
+  {
+    question: "Arrays in JavaScript can be used to store ____________.",
+    button1: "Numbers and Strings",
+    button2: "Other Arrays",
+    button3: "Booleans",
+    button4: "All of the Above",
+    correct: "4",
+  },
+  {
+    question:
+      "String values must be enclosed within ___________ when being assigned to variables.",
+    button1: "Commas",
+    button2: "Curly Brackets",
+    button3: "Quotes",
+    button4: "Parenthesis",
+    correct: "3",
+  },
+  {
+    question:
+      "A very useful tool used during development and debugging for printing content to the debugger is:",
+    button1: "JavaScript",
+    button2: "Terminal / Bash",
+    button3: "For Loops",
+    button4: "console.log",
+    correct: "4",
+  },
+];
 
 // This function will hide my start button on click, and reveal the buttons.
 function hideStart() {
