@@ -23,10 +23,6 @@ function hideStart() {
     choices.classList.add("show");
     choices.classList.remove("hide");
   }
-  if (choices.classList.contains("hide")) {
-    choices.classList.add("show");
-    choices.classList.remove("hide");
-  }
   if (instructions.classList.contains("show")) {
     instructions.classList.add("hide");
     instructions.classList.remove("show");
