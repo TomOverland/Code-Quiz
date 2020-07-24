@@ -8,26 +8,26 @@
   </head>
   <body>
     <!--START BUTTON-->
-    <main id="start" class="show">
+    <div id="instructions" class="show">
       <h1>Code Quiz Challenge</h1>
       <h4>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-      <button>Start Quiz</button>
-    </main>
+      <button id="start" class="show">Start Quiz</button>
+    </div>
     <!--QUESTION-->
-    <section id="question" class="hide">
-      <h3>Commonly used data types DO NOT include:</h1>
-    </section>
+    <div id="questionContainer" class="hide">
+      <h3 id=question>Commonly used data types DO NOT include:</h1>
+      </div>
     <!--QUESTION BUTTONS-->
-    <section id="quizButtons" class="hide">
+    <div id="choices" class="hide">
       <button id="button1" class="incorrect">Strings</button>
       <button id="button2" class="incorrect">Booleans</button>
       <button id="button3" class="correct">Alerts</button>
       <button id="button4" class="incorrect">Numbers</button>
-    </section>
+    </div>
     <!--TIME REMAINING-->
-    <section>
+    <div>
       <p>Time Remaining: <span id="count">70</span></p>
-    </section>
+    </div>
     <script src="assets\script.js"></script>
   </body>
 </html>

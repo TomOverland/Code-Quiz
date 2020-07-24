@@ -4,7 +4,12 @@ let button3 = document.getElementById("button3");
 let button4 = document.getElementById("button4");
 let counter = document.getElementById("count");
 let start = document.getElementById("start");
-let question = document.getElementById("question");
+let choices = document.getElementById("choices");
+let instructions = document.getElementById("instructions");
+let questionContainer = document.getElementById("questionContainer");
+let timeLeft = 70;
+
+let questions;
 
 // This function will hide my start button on click, and reveal the buttons.
 function hideStart() {
@@ -14,15 +19,38 @@ function hideStart() {
     start.classList.add("hide");
     start.classList.remove("show");
   }
-  if (quizButtons.classList.contains("hide")) {
-    quizButtons.classList.add("show");
-    quizButtons.classList.remove("hide");
+  if (choices.classList.contains("hide")) {
+    choices.classList.add("show");
+    choices.classList.remove("hide");
   }
-  if (question.classList.contains("hide")) {
-    question.classList.add("show");
-    question.classList.remove("hide");
+  if (choices.classList.contains("hide")) {
+    choices.classList.add("show");
+    choices.classList.remove("hide");
   }
+  if (instructions.classList.contains("show")) {
+    instructions.classList.add("hide");
+    instructions.classList.remove("show");
+  }
+  if (questionContainer.classList.contains("hide")) {
+    questionContainer.classList.add("show");
+    questionContainer.classList.remove("hide");
+  }
+}
+
+// This function is what counts the clock down by 1 second
+function countDown() {
+  //console.log("countdown"); //this console.log tests if the addEventListener is working.
+  setInterval(function () {
+    // This if statement prevents the timer from counting below zero.
+    if (timeLeft <= 0) {
+      clearInterval((timeLeft = 0));
+    }
+    // this causes the countdown to decrement by one each second
+    counter.innerHTML = timeLeft;
+    timeLeft -= 1;
+  }, 1000);
 }
 
 //This on click event will trigger the hideStart function
 start.addEventListener("click", hideStart);
+start.addEventListener("click", countDown);
