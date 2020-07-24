@@ -100,6 +100,7 @@ function checkAnswer(answer) {
     renderQuestion();
   } else {
     clearInterval(timeLeft);
+    // This will then trigger the end screen, which will display your score as the remaining time.
     questionContainer.classList.add("hide");
     questionContainer.classList.remove("show");
     choices.classList.add("hide");
@@ -107,6 +108,8 @@ function checkAnswer(answer) {
     ending.classList.add("show");
     ending.classList.remove("hide");
     score.innerHTML = timeLeft;
+    timer.classList.add("hide");
+    timer.classList.remove("show");
   }
 }
 
