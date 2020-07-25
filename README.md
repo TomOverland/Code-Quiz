@@ -3,8 +3,8 @@
 ## Live site
 This is a link to the deployed application: https://tomoverland.github.io/Code-Quiz/  
 
-## Demonstration of application  
-![demonstration of application](link)
+## Demonstration of Application  
+![demonstration of application](link) GIF to be added.
 
 ## Description
 This application will allow you to take a timed quiz on JavaScript fundamentals that stores high scores.  
