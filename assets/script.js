@@ -113,8 +113,10 @@ function checkAnswer(answer) {
   }
 }
 
-// This function will hide my start button on click, and reveal the questions and answer buttons.
-function hideStart() {
+// This function will hide my start button on click, reveal the questions and answer buttons, as well as begin the timer.
+function beginQuiz() {
+  countDown();
+  renderQuestion();
   //console.log("Start"); // This console.log will add "start" to the console to give me a quick idea if the button is working, used for debugging
   //console.log(start.style);  // This console.log tells me what the "style" of the start element is targeting, used for debugging
   if (start.classList.contains("show")) {
@@ -151,7 +153,5 @@ function countDown() {
   }, 1000);
 }
 
-//This on click event will trigger the hideStart function
-start.addEventListener("click", hideStart);
-start.addEventListener("click", countDown);
-start.addEventListener("click", renderQuestion);
+//This on click event will trigger the beginQuiz function
+start.addEventListener("click", beginQuiz);
