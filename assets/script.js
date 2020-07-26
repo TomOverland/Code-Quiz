@@ -172,8 +172,9 @@ function addToHighscore() {
 
   // save the item to localStorage
   localStorage.setItem("highScoreInput", JSON.stringify(highScoreInput));
-  console.log(JSON.stringify(highScoreInput));
-  highScoreList.innerHTML = "<li>" + highScoreInput + "</li>";
+  // console.log(JSON.stringify(highScoreInput));
+  highScoreList.innerHTML =
+    "<li>" + highScoreInput.initials + ": " + highScoreInput.score + "</li>";
 }
 
 let highScoreUser = JSON.parse(localStorage.getItem("highScoreInput"));
