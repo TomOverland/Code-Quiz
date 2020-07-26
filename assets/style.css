@@ -1,22 +1,12 @@
-body {
-  background-color: lightskyblue;
-}
-
 h1 {
   text-align: center;
   color: navy;
 }
 
 button {
-  background-color: lightcoral;
-  color: white;
-  margin: auto;
-  margin-bottom: 1rem;
-  display: flex;
   width: 80%;
   height: auto;
   padding: 0.5rem;
-  cursor: pointer;
 }
 
 .hide {
