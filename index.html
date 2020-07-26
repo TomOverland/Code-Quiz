@@ -28,39 +28,58 @@
     <!--START BUTTON-->
     <div class="container">
       <div class="row">
-        <div class="col-3"></div>
+        <div class="col-3">
+        </div>
         <div id="instructions" class="col-6 show">
           <h1>Code Quiz Challenge</h1>
           <h4>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
           <button id="start" class="show">Start Quiz</button>
         </div>
-        <div class="col-3"></div>
+        <div class="col-3">
+        </div>
       </div>
     </div>
 
-    <!--QUESTION-->
+    <!--QUESTION CONTAINER-->
     <div class="container">
       <div class="row">
+        <div class="col-2"></div>
         <div id="questionContainer" class="col-8 hide">
           <h3 id="question"> Question </h3>
+        </div>
+        <div class="col-2">
         </div>
       </div>
     <!--QUESTION BUTTONS-->
       <div class="row">
+        <div class="col-2">
+        </div>
         <div id="choices" class="col-8 hide">
           <button id="1" class="choice" onclick="checkAnswer('1')"> Button 1 </button>
           <button id="2" class="choice" onclick="checkAnswer('2')"> Button 2 </button>
           <button id="3" class="choice" onclick="checkAnswer('3')"> Button 3 </button>
           <button id="4" class="choice" onclick="checkAnswer('4')"> Button 4 </button>
         </div>
+        <div class="col-2">
+        </div>
       </div>
     </div>
+    
     <!--END SCREEN-->
     <div class="container">
       <div class="row">
-        <div id="ending" class="col-8 hide">
+        <div class="col-4">
+        </div>
+        <div id="ending" class="col-4 hide">
           <h3> All Done! </h3>
-          <p> Score: <span id="score">50</span> </p>
+          <form id="initialsForm">
+            <label>Enter your initials to save your highscore!</label>
+            <input type="text" id="initials" name="initials">
+            <input type="submit" value="Submit">
+          </form>
+          <p> Score: <span id="score">50</span></p>
+        </div>
+        <div class="col-4">
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 body {
-  background-color: bisque;
+  background-color: lightskyblue;
 }
 
 h1 {
@@ -8,7 +8,7 @@ h1 {
 }
 
 button {
-  background-color: darkblue;
+  background-color: lightcoral;
   color: white;
   margin: auto;
   margin-bottom: 1rem;
