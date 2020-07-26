@@ -14,6 +14,7 @@ let initials = document.getElementById("initials");
 let goBack = document.getElementById("goBack");
 let resetHighScores = document.getElementById("resetHighScore");
 let initialsForm = document.getElementById("initialsForm");
+let highScoreList = document.getElementById("highScoreList");
 let timeLeft = 70;
 
 // I created a question object to store the questions and button choices as an array
@@ -159,4 +160,12 @@ function countDown() {
 
 //This on click event will trigger the beginQuiz function
 start.addEventListener("click", beginQuiz);
-initialsForm.addEventListener();
+initialsForm.addEventListener("submit", function (event) {
+  // Don't submit a form
+  event.preventDefault();
+  // prevent submissions from empty input box
+  if (initials.nodeValue.length < 1) {
+    return;
+  }
+  highScoreList.innerHTML += "<li>" + initials + ": " + score;
+});
