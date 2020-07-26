@@ -5,34 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="assets/style.css" />
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
   <body>
-    <!--START BUTTON-->
-    <div id="instructions" class="show">
-      <h1>Code Quiz Challenge</h1>
-      <h4>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
-      <button id="start" class="show">Start Quiz</button>
-    </div>
-    <!--QUESTION-->
-    <div id="questionContainer" class="hide">
-      <h3 id=question> Question </h3>
-    </div>
-    <!--QUESTION BUTTONS-->
-    <div id="choices" class="hide">
-      <button id="1" class="choice" onclick="checkAnswer('1')"> Button 1 </button>
-      <button id="2" class="choice" onclick="checkAnswer('2')"> Button 2 </button>
-      <button id="3" class="choice" onclick="checkAnswer('3')"> Button 3 </button>
-      <button id="4" class="choice" onclick="checkAnswer('4')"> Button 4 </button>
-    </div>
-    <div id=ending class="hide">
-      <h3> All Done! </h3>
-      <p> Score: <span id="score">50</span> </p>
-    </div>
     
-    <!--TIME REMAINING-->
-    <div id="timer" class="hide">
-      <p>Time Remaining: <span id="count">70</span></p>
+    <!--HIGHSCORE CONTAINER-->
+    <div class="container">
+      <div class="row">
+        <div id="highScoreLink" class="col-3">
+          <a href="#">View Highscores</a>
+        </div>
+        <div class="col-6">
+        </div>
+         <!--TIME REMAINING-->
+        <div id="timer" class="col-3 hide">
+          <p>Time Remaining: <span id="count">70</span></p>
+        </div>
+      </div>
     </div>
+     
+    <!--START BUTTON-->
+    <div class="container">
+      <div class="row">
+        <div class="col-3"></div>
+        <div id="instructions" class="col-6 show">
+          <h1>Code Quiz Challenge</h1>
+          <h4>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+          <button id="start" class="show">Start Quiz</button>
+        </div>
+        <div class="col-3"></div>
+      </div>
+    </div>
+
+    <!--QUESTION-->
+    <div class="container">
+      <div class="row">
+        <div id="questionContainer" class="col-8 hide">
+          <h3 id="question"> Question </h3>
+        </div>
+      </div>
+    <!--QUESTION BUTTONS-->
+      <div class="row">
+        <div id="choices" class="col-8 hide">
+          <button id="1" class="choice" onclick="checkAnswer('1')"> Button 1 </button>
+          <button id="2" class="choice" onclick="checkAnswer('2')"> Button 2 </button>
+          <button id="3" class="choice" onclick="checkAnswer('3')"> Button 3 </button>
+          <button id="4" class="choice" onclick="checkAnswer('4')"> Button 4 </button>
+        </div>
+      </div>
+    </div>
+    <!--END SCREEN-->
+    <div class="container">
+      <div class="row">
+        <div id="ending" class="col-8 hide">
+          <h3> All Done! </h3>
+          <p> Score: <span id="score">50</span> </p>
+        </div>
+      </div>
+    </div>
+  
+    
     <script src="assets\script.js"></script>
   </body>
 </html>
