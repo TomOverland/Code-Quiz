@@ -10,7 +10,8 @@ let questionContainer = document.getElementById("questionContainer");
 let ending = document.getElementById("ending");
 let score = document.getElementById("score");
 let timer = document.getElementById("timer");
-let storageInput = document.getElementById("initials");
+let initialInput = document.getElementById("initials");
+let initialsBtn = document.getElementById("initialsBtn");
 let goBack = document.getElementById("goBack");
 let resetHighScores = document.getElementById("resetHighScore");
 let highScoreList = document.getElementById("highScoreList");
@@ -160,24 +161,21 @@ function countDown() {
   }, 1000);
 }
 
+function saveToLocalStorage() {
+  localStorage.setItem("initials", initialInput.textContent);
+  localStorage.setItem("score", score.textContent);
+}
+
+let storedInitials = localStorage.getItem("initials");
+let storedScore = localStorage.getItem("score");
+
 function addToHighscore() {
   // Don't submit a form
   event.preventDefault();
-  // add item to high score list
-  let highScoreInput = {
-    initials: storageInput.value.trim(),
-    score: score,
-  };
-  //highScoreList.innerHTML += "<li>" + storageInput + ": " + score;
-
-  // save the item to localStorage
-  localStorage.setItem("highScoreInput", JSON.stringify(highScoreInput));
-  // console.log(JSON.stringify(highScoreInput));
+  saveToLocalStorage();
   highScoreList.innerHTML =
-    "<li>" + highScoreInput.initials + ": " + highScoreInput.score + "</li>";
+    "<li>" + storedInitials + ": " + storedScore + "</li>";
 }
-
-let highScoreUser = JSON.parse(localStorage.getItem("highScoreInput"));
 
 function viewHighScore() {
   highScoreContainer.classList.add("show");
@@ -215,4 +213,4 @@ start.addEventListener("click", beginQuiz);
 highScoreBtn.addEventListener("click", viewHighScore);
 
 //when user submits their score & initials, it will save high score to local storage
-storageInput.addEventListener("click", addToHighscore);
+initialsBtn.addEventListener("click", addToHighscore);
