@@ -10,11 +10,13 @@ let questionContainer = document.getElementById("questionContainer");
 let ending = document.getElementById("ending");
 let score = document.getElementById("score");
 let timer = document.getElementById("timer");
-let initials = document.getElementById("initials");
+let storageInput = document.getElementById("initials");
 let goBack = document.getElementById("goBack");
 let resetHighScores = document.getElementById("resetHighScore");
-let initialsForm = document.getElementById("initialsForm");
 let highScoreList = document.getElementById("highScoreList");
+let highScoreContainer = document.getElementById("highScore");
+let highScoreBtn = document.getElementById("highScoreBtn");
+
 let timeLeft = 70;
 
 // I created a question object to store the questions and button choices as an array
@@ -158,14 +160,58 @@ function countDown() {
   }, 1000);
 }
 
-//This on click event will trigger the beginQuiz function
-start.addEventListener("click", beginQuiz);
-initialsForm.addEventListener("submit", function (event) {
+function addToHighscore() {
   // Don't submit a form
   event.preventDefault();
-  // prevent submissions from empty input box
-  if (initials.nodeValue.length < 1) {
-    return;
+  // add item to high score list
+  let highScoreInput = {
+    initials: storageInput.value.trim(),
+    score: score,
+  };
+  //highScoreList.innerHTML += "<li>" + storageInput + ": " + score;
+
+  // save the item to localStorage
+  localStorage.setItem("highScoreInput", JSON.stringify(highScoreInput));
+  console.log(JSON.stringify(highScoreInput));
+  highScoreList.innerHTML = "<li>" + highScoreInput + "</li>";
+}
+
+let highScoreUser = JSON.parse(localStorage.getItem("highScoreInput"));
+
+function viewHighScore() {
+  highScoreContainer.classList.add("show");
+  highScoreContainer.classList.remove("hide");
+  if (start.classList.contains("show")) {
+    start.classList.add("hide");
+    start.classList.remove("show");
   }
-  highScoreList.innerHTML += "<li>" + initials + ": " + score;
-});
+  if (choices.classList.contains("show")) {
+    choices.classList.add("hide");
+    choices.classList.remove("show");
+  }
+  if (instructions.classList.contains("show")) {
+    instructions.classList.add("hide");
+    instructions.classList.remove("show");
+  }
+  if (questionContainer.classList.contains("show")) {
+    questionContainer.classList.add("hide");
+    questionContainer.classList.remove("show");
+  }
+  if (ending.classList.contains("show")) {
+    ending.classList.add("hide");
+    ending.classList.remove("show");
+  }
+  if (timer.classList.contains("show")) {
+    timer.classList.add("hide");
+    timer.classList.remove("show");
+  }
+}
+
+//This on click event will trigger the beginQuiz function
+start.addEventListener("click", beginQuiz);
+
+//on button click will bring user to highscore screen
+highScoreBtn.addEventListener("click", viewHighScore);
+
+//when user submits their score & initials, it will save high score to local storage
+storageInput.addEventListener("click", addToHighscore);

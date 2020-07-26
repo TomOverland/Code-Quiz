@@ -14,7 +14,7 @@
     <div class="container">
       <div class="row">
         <div id="highScoreLink" class="col-3">
-          <button id="viewHighscores">View Highscores</button>
+          <button id="highScoreBtn">View Highscores</button>
         </div>
         <div class="col-6">
         </div>
@@ -72,23 +72,21 @@
         </div>
         <div id="ending" class="col-6 hide">
           <h3> All Done! </h3>
-          <form id="initialsForm">
-            <label>Enter your initials to save your highscore!</label>
+            <p>Enter your initials to save your highscore!</p>
             <input type="text" id="initials" name="initials">
-            <input type="submit" value="Submit">
-          </form>
-          <p> Score: <span id="score">50</span></p>
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <button id="goBack">Go Back</button>
-              </div>
-              <div class="col">
-                <button id="resetHighScore">Reset Highscores</button>
+            <button id="initialsBtn"> Submit </button>
+            <p> Score: <span id="score">50</span></p>
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <button id="goBack">Go Back</button>
+                </div>
+                <div class="col">
+                  <button id="resetHighScore">Reset Highscores</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
         <div class="col-3">
         </div>
       </div>
