@@ -17,7 +17,8 @@ let resetHighScores = document.getElementById("resetHighScore");
 let highScoreList = document.getElementById("highScoreList");
 let highScoreContainer = document.getElementById("highScore");
 let highScoreBtn = document.getElementById("highScoreBtn");
-
+let storedInitials = localStorage.getItem("initials");
+let storedScore = localStorage.getItem("score");
 let timeLeft = 70;
 
 // I created a question object to store the questions and button choices as an array
@@ -162,21 +163,19 @@ function countDown() {
 }
 
 function saveToLocalStorage() {
-  localStorage.setItem("initials", initialInput.textContent);
+  localStorage.setItem("initials", initialInput.value);
   localStorage.setItem("score", score.textContent);
 }
 
-let storedInitials = localStorage.getItem("initials");
-let storedScore = localStorage.getItem("score");
-
 function addToHighscore() {
-  // Don't submit a form
+  // preventDefault prevents the form asking for user initials from submitting
   event.preventDefault();
   saveToLocalStorage();
   highScoreList.innerHTML =
     "<li>" + storedInitials + ": " + storedScore + "</li>";
 }
 
+// This function will show the high score container and hide the other containers
 function viewHighScore() {
   highScoreContainer.classList.add("show");
   highScoreContainer.classList.remove("hide");
