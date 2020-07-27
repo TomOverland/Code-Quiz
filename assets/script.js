@@ -19,6 +19,7 @@ let highScoreContainer = document.getElementById("highScore");
 let highScoreBtn = document.getElementById("highScoreBtn");
 let storedInitials = localStorage.getItem("initials");
 let storedScore = localStorage.getItem("score");
+let returnToStartBtn = document.getElementById("returnToStartBtn");
 let timeLeft = 70;
 
 // I created a question object to store the questions and button choices as an array
@@ -87,7 +88,6 @@ function renderQuestion() {
 // This function defines what to do if the user answered the question correctly
 function answerIsCorrect() {
   console.log("correct");
-  // To be done: Figure out a way to write "Correct" into the HTML
 }
 
 // This function defines what to do if the user answered incorrectly, and deducts 10 seconds from their score.
@@ -205,6 +205,33 @@ function viewHighScore() {
   }
 }
 
+function returnToStart() {
+  start.classList.add("show");
+  start.classList.remove("hide");
+  instructions.classList.add("show");
+  instructions.classList.remove("hide");
+  if (highScoreContainer.classList.contains("show")) {
+    highScoreContainer.classList.add("hide");
+    highScoreContainer.classList.remove("show");
+  }
+  if (choices.classList.contains("show")) {
+    choices.classList.add("hide");
+    choices.classList.remove("show");
+  }
+  if (questionContainer.classList.contains("show")) {
+    questionContainer.classList.add("hide");
+    questionContainer.classList.remove("show");
+  }
+  if (ending.classList.contains("show")) {
+    ending.classList.add("hide");
+    ending.classList.remove("show");
+  }
+  if (timer.classList.contains("show")) {
+    timer.classList.add("hide");
+    timer.classList.remove("show");
+  }
+}
+
 //This on click event will trigger the beginQuiz function
 start.addEventListener("click", beginQuiz);
 
@@ -213,3 +240,7 @@ highScoreBtn.addEventListener("click", viewHighScore);
 
 //when user submits their score & initials, it will save high score to local storage
 initialsBtn.addEventListener("click", addToHighscore);
+
+returnToStartBtn.addEventListener("click", returnToStart);
+
+goBack.addEventListener("click", returnToStart);
