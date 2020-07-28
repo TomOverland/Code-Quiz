@@ -17,8 +17,6 @@ let resetHighScores = document.getElementById("resetHighScore");
 let highScoreList = document.getElementById("highScoreList");
 let highScoreContainer = document.getElementById("highScore");
 let highScoreBtn = document.getElementById("highScoreBtn");
-let storedInitials = localStorage.getItem("initials");
-let storedScore = localStorage.getItem("score");
 let returnToStartBtn = document.getElementById("returnToStartBtn");
 let timeLeft = 70;
 
@@ -126,8 +124,7 @@ function checkAnswer(answer) {
 function beginQuiz() {
   countDown();
   renderQuestion();
-  //console.log("Start"); // This console.log will add "start" to the console to give me a quick idea if the button is working, used for debugging
-  //console.log(start.style);  // This console.log tells me what the "style" of the start element is targeting, used for debugging
+
   if (start.classList.contains("show")) {
     start.classList.add("hide");
     start.classList.remove("show");
@@ -234,13 +231,14 @@ function returnToStart() {
 
 //This on click event will trigger the beginQuiz function
 start.addEventListener("click", beginQuiz);
-
 //on button click will bring user to highscore screen
 highScoreBtn.addEventListener("click", viewHighScore);
-
 //when user submits their score & initials, it will save high score to local storage
 initialsBtn.addEventListener("click", addToHighscore);
-
+//this button will return the user to the start screen from the high score screen
 returnToStartBtn.addEventListener("click", returnToStart);
-
+//this button will return the user to the start screen from the end screen
 goBack.addEventListener("click", returnToStart);
+//local storage saved values
+let storedInitials = localStorage.getItem("initials");
+let storedScore = localStorage.getItem("score");
