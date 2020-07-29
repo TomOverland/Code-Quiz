@@ -164,11 +164,6 @@ function saveToLocalStorage() {
   localStorage.setItem("score", score.textContent);
 }
 
-// function getFromLocalStorage() {
-//   let storedInitials = localStorage.getItem("initials");
-//   let storedScore = localStorage.getItem("score");
-// }
-
 function addToHighscore() {
   // preventDefault prevents the form asking for user initials from submitting
   event.preventDefault();
@@ -246,6 +241,3 @@ initialsBtn.addEventListener("click", addToHighscore);
 returnToStartBtn.addEventListener("click", returnToStart);
 //this button will return the user to the start screen from the end screen
 goBack.addEventListener("click", returnToStart);
-//local storage saved values
-// let storedInitials = localStorage.getItem("initials");
-// let storedScore = localStorage.getItem("score");
