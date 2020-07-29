@@ -4,7 +4,7 @@
 This is a link to the deployed application: https://tomoverland.github.io/Code-Quiz/  
 
 ## Demonstration of Application  
-![demonstration of application](https://github.com/TomOverland/Code-Quiz/blob/master/assets/CodeQuizGif.gif) GIF to be added.
+![demonstration of application](https://github.com/TomOverland/Code-Quiz/blob/master/assets/CodeQuizGif.gif)
 
 ## Description
 This application will allow you to take a timed quiz on JavaScript fundamentals that stores high scores.  
